@@ -1,0 +1,10 @@
+🧪 Ejercicio 04
+--------------------------------------------------
+TODO: Mostrar los primeros 5 registros del CSV
+
+matricula nombre  apellido  edad genero      carrera  cuatrimestre  promedio
+   A00000   José     López    27      F      Derecho             5      9.20
+   A00001  María Hernández    18      M   Ingeniería             3      9.04
+   A00002 Miguel  Martínez    29      F   Ingeniería             6      7.18
+   A00003  Laura   Ramírez    26      F     Medicina             7      8.59
+   A00004  Laura    Torres    18      M Arquitectura             3      9.29

@@ -1,0 +1,6 @@
+Ejercicio 08
+--------------------------------------------------
+TODO: Crear dos matrices 2x2 y llenarla con numeros sucesivos; usar np.dot o el operador @ para multiplicarlas
+
+[[19 22]
+ [43 50]]

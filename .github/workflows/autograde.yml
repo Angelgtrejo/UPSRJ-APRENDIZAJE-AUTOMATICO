@@ -1,0 +1,35 @@
+name: Autograde
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  run-autograde:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repositorio
+      uses: actions/checkout@v3
+
+    - name: Configurar entorno virtual
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+
+    - name: Instalar dependencias
+      run: |
+        pip install requirements.txt
+
+    - name: Ejecutar ejercicios
+      run: |
+        python pandas_exercises.py
+        python numpy_exercises.py
+        python scipy_exercises.py
+        python integrated_exercise.py
+
+    - name: Ejecutar test_autograde.py
+      run: |
+        python test_autograde.py
