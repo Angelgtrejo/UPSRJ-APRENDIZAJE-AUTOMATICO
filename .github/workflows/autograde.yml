@@ -32,5 +32,6 @@ jobs:
         python integrated_exercise.py
 
     - name: Ejecutar test_autograde.py
+      working-directory: introduction
       run: |
         python test_autograde.py
