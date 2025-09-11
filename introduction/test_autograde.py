@@ -6,6 +6,7 @@ Valida los logs generados por el alumno contra los logs esperados por ejercicio.
 
 import os
 import difflib
+import sys
 
 expected_dir = "expected"
 test_dir = "test"
@@ -56,3 +57,7 @@ print(f"❌ Ejercicios con errores: {len(failed)}")
 
 if failed:
     print("\n💡 Revisa los ejercicios fallidos y asegúrate de que el formato y los valores coincidan exactamente.")
+    sys.exit(1)
+else:
+    print("\n🎉 ¡Todos los ejercicios pasaron correctamente!")
+    sys.exit(0)
