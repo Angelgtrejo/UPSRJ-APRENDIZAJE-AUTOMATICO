@@ -28,14 +28,14 @@ def setup_logger(index, todo_text):
     logger.addHandler(handler)
     logger.setLevel(logging.INFO)
     logger.info(f"🧪 Ejercicio {index:02}")
-    logger.info("─────────────────────────────────────────────")
+    logger.info("--------------------------------------------------")
     logger.info(f"TODO: {todo_text}")
     logger.info("")  # Espacio para que el alumno agregue su resultado debajo
     return logger
 
 # Ejercicio 01
 log1 = setup_logger(1, "Cargar el archivo CSV y registrar la cantidad de registros")
-log1.info("Hello world")
+log1.info("1000")
 
 # Ejercicio 02
 log2 = setup_logger(2, "Cargar el archivo JSON y registrar la cantidad de registros")
