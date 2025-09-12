@@ -27,7 +27,7 @@ arg = np.zeros(10)
 #
 # NOTE: https://numpy.org/doc/1.21/reference/generated/numpy.arange.html
 #
-pass 
+arg = np.arange(10,50) 
 
 # 🧪 Ejercicio 3: Invertir el arreglo anterior
 #
