@@ -19,7 +19,7 @@ import numpy as np
 #
 # NOTE: https://numpy.org/doc/1.21/reference/generated/numpy.zeros.html
 #
-pass 
+arg = np.zeros(10)
 
 # 🧪 Ejercicio 2: Crear un arreglo de números del 10 al 49
 #
