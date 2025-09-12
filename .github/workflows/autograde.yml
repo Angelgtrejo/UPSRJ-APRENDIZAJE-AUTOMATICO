@@ -2,9 +2,9 @@ name: Autograde
 
 on:
   push:
-    branches: [develop]
+    branches: [develop, pytest-integration]
   pull_request:
-    branches: [develop]
+    branches: [develop, pytest-integration]
 
 jobs:
   run-autograde:
@@ -23,15 +23,9 @@ jobs:
       run: |
         pip install -r requirements.txt
 
-    - name: Ejecutar ejercicios
-      working-directory: introduction
-      run: |
-        python pandas_exercises.py
-        python numpy_exercises.py
-        python scipy_exercises.py
-        python integrated_exercise.py
+    - name: Clonar repositorio de evaluación
+      run: git clone https://github.com/chucholoport/autograde-core.git
 
-    - name: Ejecutar test_autograde.py
-      working-directory: introduction
-      run: |
-        python test_autograde.py
+    - name: Ejecutar pruebas
+      working-directory: autograde-core
+      run: pytest autograde-core/tests/01_intro_libraries/test_01_intro_numpy.py

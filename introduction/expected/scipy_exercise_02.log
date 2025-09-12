@@ -1,8 +1,0 @@
-Ejercicio 02
---------------------------------------------------
-TODO: Usa linalg.det y linalg.inv sobre la matriz A
-
-Determinante: 5.0
-Inversa:
-[[ 0.4 -0.2]
- [-0.2  0.6]]
