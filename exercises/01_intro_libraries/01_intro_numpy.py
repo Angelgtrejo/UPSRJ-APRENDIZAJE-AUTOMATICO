@@ -15,23 +15,23 @@ import numpy as np
 
 # 🧪 Ejercicio 1: Crear un arreglo de 10 ceros
 #
-# TODO: Crea un arreglo 'arg' de 10 elementos con valor 0. 
+# TODO: Crea un arreglo 'arg1' de 10 elementos con valor 0. 
 #
 # NOTE: https://numpy.org/doc/1.21/reference/generated/numpy.zeros.html
 #
-arg = np.zeros(10)
+arg1 = np.zeros(10)
 
 # 🧪 Ejercicio 2: Crear un arreglo de números del 10 al 49
 #
-# TODO: Genera los números del 10 al 49 en un arreglo 'arg'. 
+# TODO: Genera los números del 10 al 49 en un arreglo 'arg2'. 
 #
 # NOTE: https://numpy.org/doc/1.21/reference/generated/numpy.arange.html
 #
-arg = np.arange(10,50) 
+arg2 = np.arange(10,50) 
 
 # 🧪 Ejercicio 3: Invertir el arreglo anterior
 #
-# TODO: Invierte el orden del arreglo 'arg', guardando el resultado en 'arg'. 
+# TODO: Invierte el orden del arreglo 'arg2', guardando el resultado en 'arg3'. 
 #
 # NOTE: https://numpy.org/doc/1.21/user/basics.indexing.html#slicing-and-striding
 #
@@ -56,7 +56,7 @@ pass
 
 # 🧪 Ejercicio 6: Calcular la media, mediana y desviación estándar
 #
-# TODO: Calcula la media, mediana y desviaciación estándar sobre el arreglo 'arg', guardando los resultados en 'mean', 'median' y 'std'
+# TODO: Calcula la media, mediana y desviaciación estándar sobre el arreglo 'arg2', guardando los resultados en 'mean', 'median' y 'std'
 #
 # NOTE: https://numpy.org/doc/1.21/reference/generated/numpy.mean.html
 #       https://numpy.org/doc/1.21/reference/generated/numpy.median.html
@@ -84,8 +84,8 @@ pass
 
 # 🧪 Ejercicio 9: Normalizar un arreglo (valores entre 0 y 1)
 #
-# TODO: Declara una función 'normalize 'que normalice un arreglo 'arg' usando la fórmula: (x - min) / (max - min), 
-#       llamala sobre el arreglo 'arg' y guarda el resultado en 'normalized'
+# TODO: Declara una función 'normalize 'que normalice un arreglo usando la fórmula: (x - min) / (max - min), 
+#       llamala sobre el arreglo 'arg2' y guarda el resultado en 'normalized'
 #
 # NOTE: https://numpy.org/doc/1.21/reference/generated/numpy.min.html
 #       https://numpy.org/doc/1.21/reference/generated/numpy.max.html
