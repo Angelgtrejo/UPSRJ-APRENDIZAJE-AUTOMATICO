@@ -35,6 +35,7 @@ def setup_logger(index, todo_text):
 
 # Ejercicio 01
 log1 = setup_logger(1, "Cargar el archivo CSV y registrar la cantidad de registros")
+log1.info("Hello world")
 
 # Ejercicio 02
 log2 = setup_logger(2, "Cargar el archivo JSON y registrar la cantidad de registros")
