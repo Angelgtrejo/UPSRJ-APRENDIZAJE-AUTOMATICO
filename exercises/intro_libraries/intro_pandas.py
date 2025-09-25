@@ -11,6 +11,7 @@ Requisitos:
 # Librerías necesarias
 import pandas as pd
 import yaml
+import os
 # Adjust the import path to include the parent directory for py_utils
 import sys
 import os
@@ -28,13 +29,14 @@ input_csv  = 'exercises/intro_libraries/inputs/estudiantes.csv'
 input_json = 'exercises/intro_libraries/inputs/estudiantes.json'
 input_yaml = 'exercises/intro_libraries/inputs/estudiantes.yaml'
 
+# Crear el directorio de outputs si no existe
+os.makedirs('exercises/intro_libraries/outputs', exist_ok=True)
 
 # Ejercicio 1: Manejo de archivos CSV
 #
 # TODO: Cargar el archivo CSV y registrar la cantidad de registros.
 #
 csv_data = pd.read_csv(input_csv)
-
 
 # Impresion de la salida csv_data
 plog(f"csv: {csv_data}", level=ERROR if csv_data is None else DEBUG, eol=True)
@@ -43,7 +45,7 @@ plog(f"csv: {csv_data}", level=ERROR if csv_data is None else DEBUG, eol=True)
 #
 # TODO: Cargar el archivo JSON y registrar la cantidad de registros.
 #
-json_data = None
+json_data = pd.read_json(input_json)
 
 # Impresion de la salida json_data
 plog(f"json: {json_data}", level=ERROR if json_data is None else DEBUG, eol=True)
@@ -52,7 +54,9 @@ plog(f"json: {json_data}", level=ERROR if json_data is None else DEBUG, eol=True
 #
 # TODO: Cargar el archivo YAML y registrar la cantidad de registros.
 #
-yaml_data = None
+with open(input_yaml, 'r', encoding='utf-8') as file:
+    yaml_content = yaml.safe_load(file)
+yaml_data = pd.DataFrame(yaml_content)
 
 # Impresion de la salida json_data
 plog(f"yaml: {yaml_data}", level=ERROR if yaml_data is None else DEBUG, eol=True)
@@ -61,7 +65,7 @@ plog(f"yaml: {yaml_data}", level=ERROR if yaml_data is None else DEBUG, eol=True
 #
 # TODO: Mostrar los primeros 5 registros del DataFrame.
 #
-df_head = None
+df_head = csv_data.head()
 
 # Impresion de la salida json_data
 plog(f"DataFrame head: {df_head}", level=ERROR if df_head is None else DEBUG, eol=True)
@@ -70,7 +74,7 @@ plog(f"DataFrame head: {df_head}", level=ERROR if df_head is None else DEBUG, eo
 #
 # TODO: Filtrar estudiantes con promedio > 9.
 #
-above_nine = None
+above_nine = csv_data[csv_data['promedio'] > 9]
 
 # Impresion de la salida above_nine
 plog(f"Estudiantes con promedio > 9: {above_nine}", level=ERROR if above_nine is None else DEBUG, eol=True)
@@ -79,8 +83,8 @@ plog(f"Estudiantes con promedio > 9: {above_nine}", level=ERROR if above_nine is
 #
 # TODO: Agrupar por carrera y calcular promedio general.
 #
-career_group = None
-general_mean = None
+career_group = csv_data.groupby('carrera')['promedio'].mean()
+general_mean = csv_data['promedio'].mean()
 
 # Impresion de la salida career_group
 plog(f"Promedio por carrera: {career_group}", level=ERROR if career_group is None else DEBUG, eol=True)
@@ -92,8 +96,8 @@ plog(f"Promedio general: {general_mean}", level=ERROR if general_mean is None el
 #
 # TODO: Contar estudiantes por género.
 #
-total_male = None
-total_female = None
+total_male = len(csv_data[csv_data['genero'] == 'M'])
+total_female = len(csv_data[csv_data['genero'] == 'F'])
 
 # Impresion de la salida total_male
 plog(f"Total hombres: {total_male}", level=ERROR if total_male is None else DEBUG, eol=True)
@@ -106,13 +110,31 @@ plog(f"Total mujeres: {total_female}", level=ERROR if total_female is None else 
 # TODO: Exportar estudiantes con promedio > 9 (above_nine) a 'outputs/excelentes.csv, 
 #       'outputs/excelentes.json' y 'outputs/excelentes.yaml'
 #
-pass
+# Exportar a CSV
+above_nine.to_csv('exercises/intro_libraries/outputs/excelentes.csv', index=False)
+
+# Exportar a JSON
+above_nine.to_json('exercises/intro_libraries/outputs/excelentes.json', orient='records', indent=2)
+
+# Exportar a YAML
+excel_dict = above_nine.to_dict('records')
+with open('exercises/intro_libraries/outputs/excelentes.yaml', 'w', encoding='utf-8') as file:
+    yaml.dump(excel_dict, file, default_flow_style=False, allow_unicode=True)
 
 # Ejercicio 09: Comparar formatos
 # 
 # TODO: Verificar que los tres formatos tengan el mismo número de registros.
 # 
-count_compare = None
+csv_count = len(csv_data)
+json_count = len(json_data)
+yaml_count = len(yaml_data)
+
+count_compare = {
+    'CSV': csv_count,
+    'JSON': json_count, 
+    'YAML': yaml_count,
+    'son_iguales': csv_count == json_count == yaml_count
+}
 
 # Impresion de la salida count_compare
 plog(f"Registros en CSV: {count_compare}", level=ERROR if count_compare is None else DEBUG, eol=True)
