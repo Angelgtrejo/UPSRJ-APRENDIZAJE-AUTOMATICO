@@ -138,3 +138,4 @@ count_compare = {
 
 # Impresion de la salida count_compare
 plog(f"Registros en CSV: {count_compare}", level=ERROR if count_compare is None else DEBUG, eol=True)
+
