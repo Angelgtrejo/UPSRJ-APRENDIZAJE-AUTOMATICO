@@ -29,7 +29,7 @@ jobs:
     - name: Ejecutar pruebas
       working-directory: autograde-core
       run:
-        pytest APRENDIZAJE-AUTOMATICO/intro_libraries/intro_numpy.py
-        pytest APRENDIZAJE-AUTOMATICO/intro_libraries/intro_pandas.py
-        pytest APRENDIZAJE-AUTOMATICO/intro_libraries/intro_scipy.py
-        pytest APRENDIZAJE-AUTOMATICO/intro_libraries/intregrated_exercises.py 
+        APRENDIZAJE-AUTOMATICO/intro_libraries/intro_numpy.py
+        APRENDIZAJE-AUTOMATICO/intro_libraries/intro_pandas.py
+        APRENDIZAJE-AUTOMATICO/intro_libraries/intro_scipy.py
+        APRENDIZAJE-AUTOMATICO/intro_libraries/intregrated_exercises.py 
