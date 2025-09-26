@@ -28,4 +28,4 @@ jobs:
 
     - name: Ejecutar pruebas
       working-directory: autograde-core
-      run: pytest ruta/correcta/al/archivo/intro_numpy.py
+      run: pytest APRENDIZAJE-AUTOMATICO/intro_libraries/intro_numpy.py
