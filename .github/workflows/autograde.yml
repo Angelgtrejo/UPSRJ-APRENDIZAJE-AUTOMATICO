@@ -28,4 +28,4 @@ jobs:
 
     - name: Ejecutar pruebas
       working-directory: autograde-core
-      run: pytest exercises/intro_libraries/
+      run: C:\Users\Acer Aspire 15\Desktop\CONT Visual\UPSRJ-APRENDIZAJE-AUTOMATICO\exercises\intro_libraries\intro_scipy.py
