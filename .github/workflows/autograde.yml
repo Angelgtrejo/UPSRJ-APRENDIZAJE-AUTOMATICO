@@ -28,4 +28,4 @@ jobs:
 
     - name: Ejecutar pruebas
       working-directory: autograde-core
-       run: pytest --verbose
+      run: pytest --verbose
