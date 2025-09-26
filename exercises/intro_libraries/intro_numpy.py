@@ -139,3 +139,5 @@ plog(f"count: {count}", level=ERROR if count is None else DEBUG, eol=True)
 # - ¿Qué significa normalizar un arreglo y cuándo se usa?
 #   Normalizar significa escalar los valores para que estén en un rango específico (0-1 en este caso).
 #   Se usa mucho en machine learning para que todas las características tengan la misma escala y no dominen unas sobre otras.
+
+
