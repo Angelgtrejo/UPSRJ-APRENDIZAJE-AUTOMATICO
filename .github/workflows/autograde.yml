@@ -29,7 +29,3 @@ jobs:
     - name: Ejecutar pruebas
       working-directory: autograde-core
       run: pytest exercises/intro_libraries/
-      
-
-
-      
