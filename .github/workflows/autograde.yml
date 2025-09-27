@@ -7,30 +7,25 @@ on:
     branches: [develop, pytest-integration]
 
 jobs:
-  run-autograde:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repositorio
-      uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Configurar entorno virtual
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
 
-    - name: Instalar dependencias
-      run: |
-        pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-    - name: Clonar repositorio de evaluación
-      run: git clone https://chucholoport:${{ secrets.AUTOGRADE_PAT }}@github.com/chucholoport/autograde-core.git
+      - name: Add repo root to PYTHONPATH
+        run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
 
-    - name: Ejecutar pruebas
-      working-directory: autograde-core
-      run: |
-        python APRENDIZAJE-AUTOMATICO/intro_libraries/intro_numpy.py
-        python APRENDIZAJE-AUTOMATICO/intro_libraries/intro_pandas.py
-        python APRENDIZAJE-AUTOMATICO/intro_libraries/intro_scipy.py
-        python APRENDIZAJE-AUTOMATICO/intro_libraries/intregrated_exercises.py
-    
+      - name: Run Python scripts
+        run: |
+          python APRENDIZAJE-AUTOMATICO/intro_libraries/intro_numpy.py
+          python APRENDIZAJE-AUTOMATICO/intro_libraries/intro_pandas.py
+          python APRENDIZAJE-AUTOMATICO/intro_libraries/intro_scipy.py
+          python APRENDIZAJE-AUTOMATICO/intro_libraries/intregrated_exercises.py
