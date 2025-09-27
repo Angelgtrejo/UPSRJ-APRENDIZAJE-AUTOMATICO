@@ -20,6 +20,12 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      # 👇 Aquí agregas el paso de debug
+      - name: Debug repo structure
+        run: |
+          pwd
+          ls -R
+
       - name: Add repo root to PYTHONPATH
         run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
 
