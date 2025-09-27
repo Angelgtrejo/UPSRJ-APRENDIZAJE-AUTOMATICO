@@ -24,8 +24,9 @@ jobs:
         run: echo "PYTHONPATH=$PYTHONPATH:$(pwd)" >> $GITHUB_ENV
 
       - name: Run Python scripts
+        working-directory: APRENDIZAJE-AUTOMATICO
         run: |
-          python APRENDIZAJE-AUTOMATICO/intro_libraries/intro_numpy.py
-          python APRENDIZAJE-AUTOMATICO/intro_libraries/intro_pandas.py
-          python APRENDIZAJE-AUTOMATICO/intro_libraries/intro_scipy.py
-          python APRENDIZAJE-AUTOMATICO/intro_libraries/intregrated_exercises.py
+            PYTHONPATH=. python intro_libraries/intro_numpy.py
+            PYTHONPATH=. python intro_libraries/intro_pandas.py
+            PYTHONPATH=. python intro_libraries/intro_scipy.py
+            PYTHONPATH=. python intro_libraries/intregrated_exercises.py
